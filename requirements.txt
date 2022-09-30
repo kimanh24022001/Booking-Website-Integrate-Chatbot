@@ -4,3 +4,4 @@ flask_sqlalchemy
 datetime
 mysql.connector
 gunicorn==20.1.0
+MySQLdb
