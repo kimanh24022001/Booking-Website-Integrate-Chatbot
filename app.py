@@ -9,7 +9,7 @@ from datetime import datetime
 app = Flask(__name__)
 
 db = SQLAlchemy()
-app.config["SQLALCHEMY_DATABASE_URI"] =  "postgres: // wnxgwnqsndjjkf : c5aedb553e95563cfe2bd7dab46e4607e0d99947f62f39b3189cdd2c2563ea68 @ ec2-3-219-19-205.compute-1.amazonaws.com : 5432 / d52nkfph56vp7n"
+app.config["SQLALCHEMY_DATABASE_URI"] =  "postgres://wnxgwnqsndjjkf:c5aedb553e95563cfe2bd7dab46e4607e0d99947f62f39b3189cdd2c2563ea68@ec2-3-219-19-205.compute-1.amazonaws.com:5432/d52nkfph56vp7n"
 
 app.config['SECRET_KEY'] = "random string"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
@@ -76,11 +76,11 @@ def login():
         
         username = request.form.get("username")
         password = request.form.get("password")
-        record = Booking.query.all()
+        #record = Booking.query.all()
         std = Admin.query.filter_by(name=username, password=password).first()
         if std:
             session['username'] = username
-            return render_template("index.html", record = record,status='SIGN OUT')
+            return render_template("index.html",status='SIGN OUT')
         else:
             flash("Incorrect password or user name")  
             return render_template("login.html", msg=msg)
