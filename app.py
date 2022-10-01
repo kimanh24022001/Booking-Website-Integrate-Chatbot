@@ -9,7 +9,8 @@ from datetime import datetime
 app = Flask(__name__)
 
 db = SQLAlchemy()
-app.config["SQLALCHEMY_DATABASE_URI"] =  "postgresql://pvvlxtyovczsfa:4dda21ba32de6afb7689b241156176f7d5eafe0dd44be69d75685b76d50f1bb3@ec2-52-207-90-231.compute-1.amazonaws.com:5432/d1jeiqrrth0nhd"
+app.config["SQLALCHEMY_DATABASE_URI"] =  "postgres: // wnxgwnqsndjjkf : c5aedb553e95563cfe2bd7dab46e4607e0d99947f62f39b3189cdd2c2563ea68 @ ec2-3-219-19-205.compute-1.amazonaws.com : 5432 / d52nkfph56vp7n"
+
 app.config['SECRET_KEY'] = "random string"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db.init_app(app)
