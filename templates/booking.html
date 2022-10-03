@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crowny Hotel</title>
+  <link rel="stylesheet" href="static/style_booking.css">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>            
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" integrity="sha512-UTNP5BXLIptsaj5WdKFrkFov94lDx+eBvbKyoe1YAfjeRPC+gT5kyZ10kOHCfNZqEui1sxmqvodNUx3KbuYI/A==" crossorigin="anonymous"
+    referrerpolicy="no-referrer" />
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<link href="{{ url_for('static', filename='assets/css/bootstrap.css')}}" rel="stylesheet" />
+     <!-- FontAwesome Styles-->
+    <link href="{{ url_for('static', filename='assets/css/font-awesome.css')}}" rel="stylesheet" />
+        <!-- Custom Styles-->
+    <link href="{{ url_for('static', filename='assets/css/custom-styles.css')}}" rel="stylesheet" />
+     <!-- Google Fonts-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' /></head>
+<body>
+  <style>
+    .row {
+     position: center;
+}
+</style>
+  <header>
+    <div class="content flex_space">
+      <div class="logo">
+        <img src="static/images/logo.png"  alt="">
+        <style>
+           .logo{
+            margin-left: 30px
+          }
+        </style>
+      </div>
+      <div class="navlinks">
+        <ul class="menulist">
+          <li> <a href="/success">Home</a> </li>
+          <li> <a href="#about">about</a> </li>
+          <li> <a href="#rooms">rooms</a> </li>
+          <li> <a href="#news">news</a> </li>
+          <li> <a href="#contact">contact</a> </li>
+          <a href="/"><li> <button class="second-btn">SIGN OUT</button> </li></a>
+          <li> <button class="primary-btn">BOOK NOW</button> </li>
+        </ul>
+      </div>
+      </div>
+    </div>
+  </header>
+  <img scr="">{{image}}
+  <script> 
+    var a=image;
+    if (image =='1'){
+         scr="static/images/room-1.png"
+    }
+
+      </script>
+  <div class="form-booking"  style="background-color: rgb(247, 247, 247)">
+                        <h1 class="page-header">
+                            RESERVATION <small></small>
+                        </h1>      
+      <div class="container-form" style="width:35%; margin:auto;">      
+        <div class="row" >
+                    <div class="panel panel-primary">
+                      <fieldset>
+                        <legend style="color:rgb(0, 0, 0)">
+                            PERSONAL INFORMATION
+                        </legend>
+                        <div class="panel-body">
+						             <form name="form" method="post" action="/booking">
+                            <div class="form-group">
+                                            <label>Title*</label>
+                                            <select name="title" class="form-control" required >
+												<option value selected ></option>
+                                                <option value="Dr.">Dr.</option>
+                                                <option value="Miss.">Miss.</option>
+                                                <option value="Mr.">Mr.</option>
+                                                <option value="Mrs.">Mrs.</option>
+												<option value="Prof.">Prof.</option>
+												<option value="Rev .">Rev .</option>
+												<option value="Rev . Fr">Rev . Fr .</option>
+                                            </select>
+                              </div>
+							  <div class="form-group">
+                                            <label>First Name</label>
+                                            <input name="fname" class="form-control" required>
+                                            
+                               </div>
+							   <div class="form-group">
+                                            <label>Last Name</label>
+                                            <input name="lname" class="form-control" required>
+                                            
+                               </div>
+							   <div class="form-group">
+                                            <label>Email</label>
+                                            <input name="email" type="email" class="form-control" required>
+                                            
+                               </div>
+							   <div class="form-group">
+                                            <label>Nationality*</label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="nation"  value="Pakistani" checked="">Vietnamese
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="nation"  value="Non Pakistani ">Non Vietnamese 
+                                            </label>
+                         
+                                </div>
+															
+								<div class="form-group">
+                                            <label>Phone Number</label>
+                                            <input name="phone" type ="text" class="form-control" required>
+                                            
+                               </div>
+							   
+                        </div>
+                        </fieldset>
+                    </div>
+                </div>
+
+            <div class="row" style="margin-top:30px">
+                    <div class="panel panel-primary">
+                       <fieldset>
+                        <legend style="color:rgb(0, 0, 0)">
+                            RESERVATION INFORMATION
+                        </legend>
+                        <div class="panel-body">
+								<div class="form-group">
+                                            <label>Type Of Room *</label>
+                                            <select name="troom"  class="form-control" required>
+												<option value selected ></option>
+                                                <option value="Superior Room">SUPERIOR ROOM</option>
+                                                <option value="Deluxe Room">DELUXE ROOM</option>
+												<option value="Guest House">GUEST HOUSE</option>
+												<option value="Single Room">SINGLE ROOM</option>
+                                            </select>
+                              </div>
+							  <div class="form-group">
+                                            <label>Bedding Type</label>
+                                            <select name="bed" class="form-control" required>
+												<option value selected ></option>
+                                                <option value="Single">Single</option>
+                                                <option value="Double">Double</option>
+												<option value="Triple">Triple</option>
+                                                <option value="Quad">Quad</option>
+												<option value="None">None</option>
+                                                
+                                             
+                                            </select>
+                              </div>
+							  <div class="form-group">
+                                            <label>No.of Rooms *</label>
+                                            <select name="nroom" class="form-control" required>
+												<option value selected ></option>
+                                                <option value="1">1</option>
+                                               <option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+                                            </select>
+                              </div>
+							 
+							 
+							  
+							  <div class="form-group">
+                                            <label>Check-In</label>
+                                            <input name="cin" type ="date" class="form-control">
+                                            
+                               </div>
+							   <div class="form-group">
+                                            <label>Check-Out</label>
+                                            <input name="cout" type ="date" class="form-control">
+                               </div>
+                               </fieldset>
+                         <a href="/login"></a><input style="background-color: rgb(0, 199, 83);color:white; border-radius:0%;height: 40px;" type="submit" name="submit" value="Submit" class="btn btn-primary" ></a>
+                       </div>
+                        
+                    </div>
+                </div>
+						</form>
+							
+                    </div>
+                </div>
+            </div>
+            
+          </div>
+        </div>
+
+  <footer>
+    <div class="container grid">
+      <div class="box">
+        <h1 color: blue>VINPEAR</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+          aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <div class="icon">
+          <i class="fa fa-facebook-f"></i>
+          <i class="fa fa-instagram"></i>
+          <i class="fa fa-twitter"></i>
+          <i class="fa fa-youtube"></i>
+        </div>
+      </div>
+
+      <div class="box">
+        <h2>Links</h2>
+        <ul>
+          <li>Company History</li>
+          <li>About Us</li>
+          <li>Contact Us</li>
+          <li>Services</li>
+          <li>Privacy Policy</li>
+        </ul>
+      </div>
+
+      <div class="box">
+        <h2>Contact Us</h2>
+        <p>
+        </p>
+        <i class="fa fa-location-dot"></i>
+        <label>1201 park street, Avenue, Dhanmondy, Dhaka. </label> <br>
+        <i class="fa fa-phone"></i>
+        <label>[88] 657 524 332</label> <br>
+        <i class="fa fa-envelope"></i>
+        <label>info@dentar.com</label> <br>
+      </div>
+    </div>
+  </footer>
+    <div id="branchs">
+        <ul >
+                 <li> <a href="#home"><img src="static\images\booking.png"></a> </li>
+                <li> <a href="#about"><img src="static\images\agoda.jpg"></a> </li>
+                <li> <a href="#rooms"><img src="static\images\trave.jpg"></a> </li>
+        </ul>
+    </div>
+  <div class="legal">
+    Copyright (c) 2022 Copyright Holder All Rights Reserved.
+  </div>
+  <div class="acbsww_icon_webchat">
+    <style>
+      .rw-widget-container{width: 90%;height:90%}
+      .rw-new-message{color: red}
+      .rw-widget-container .rw-close-button{ background-color: rgb(0, 228, 61);}
+      .rw-conversation-container .rw-header{background-color: rgb(0, 228, 61);
+}
+      .rw-conversation-container .rw-messages-container .rw-message .rw-client{background-color: rgb(0, 228, 61);}
+      .rw-launcher{ background-image: url("C:\\Users\\DELL\\Desktop\\rasa_hotelchatbot\\images\\bot.gif")}
+    </style>
+    <script src="hi.js"></script>
+    <script>!(function () {
+        let e = document.createElement("script"),
+          t = document.head || document.getElementsByTagName("head")[0];
+        (e.src =
+          "https://cdn.jsdelivr.net/npm/rasa-webchat@1.x.x/lib/index.js"),
+          // Replace 1.x.x with the version that you want
+          (e.async = !0),
+          (e.onload = () => {
+
+            window.WebChat.default(
+              {
+                initPayload: "/greet",
+                selector: "#webchat",
+                interval: 1000,
+                customData: { language: "en" , "userID": "123"},
+                socketUrl: "http://localhost:5005",
+                socketPath: "/socket.io/",
+                title: "Booking Bot",
+                // subtitle: "Subtitle",
+                inputTextFieldHint: "Type a message...",
+                connectingText: "Waiting for server",
+                hideWhenNotConnected: true,
+                fullScreenMode: false,
+                showFullScreenButton: false,
+                
+                profileAvatar: "C:\\Users\\DELL\\Desktop\\rasa_hotelchatbot\\images\\bot.gif",
+                openLauncherImage: "myCustomOpenImage.png",
+                closeLaucherImage: "myCustomCloseImage.png",
+                displayUnreadCount: true,
+                params: {
+                    images:{
+                        dims:{
+                            witdh: 300,
+                            height: 200,
+                        }
+                    },
+                    storage: "local"
+                },
+                // add other props here
+
+              },
+              null
+            );
+          }),
+          t.insertBefore(e, t.firstChild);
+      })();
+       localStorage.clear();
+      </script>    
+      </div>
+      <div>{{recommend}}</div>
+</body>
+</html>
