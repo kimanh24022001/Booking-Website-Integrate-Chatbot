@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crowny Hotel</title>
+  <link rel="stylesheet" href="static/style_booking.css">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>            
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" integrity="sha512-UTNP5BXLIptsaj5WdKFrkFov94lDx+eBvbKyoe1YAfjeRPC+gT5kyZ10kOHCfNZqEui1sxmqvodNUx3KbuYI/A==" crossorigin="anonymous"
+    referrerpolicy="no-referrer" />
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<link href="{{ url_for('static', filename='assets/css/bootstrap.css')}}" rel="stylesheet" />
+     <!-- FontAwesome Styles-->
+    <link href="{{ url_for('static', filename='assets/css/font-awesome.css')}}" rel="stylesheet" />
+        <!-- Custom Styles-->
+    <link href="{{ url_for('static', filename='assets/css/custom-styles.css')}}" rel="stylesheet" />
+     <!-- Google Fonts-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' /></head>
+<body>
+<style>
+body {
+  font-family: Arial;
+  font-size: 17px;
+  padding: 8px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  margin: 0 -16px;
+}
+
+.col-25 {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+}
+
+.col-50 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+}
+
+.col-75 {
+  -ms-flex: 75%; /* IE10 */
+  flex: 75%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
+
+.form {
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+input[type=text] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+.btn,.signinbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.signinbtn {
+  background-color: #0f6fc5;
+  width: 30%;
+  margin-left: 10px;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+a {
+  color: #2196F3;
+}
+
+hr {
+  border: 1px solid lightgrey;
+}
+
+.container{
+  border: 1px solid lightgrey;
+  padding: 30px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);;
+}
+span.price {
+  float: right;
+  color: grey;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+@media (max-width: 800px) {
+  .row {
+    flex-direction: column-reverse;
+  }
+  .col-25 {
+    margin-bottom: 20px;
+  }
+}
+</style>
+  <header>
+    <div class="content flex_space">
+      <div class="logo">
+        <img src="static/images/logo.png"  alt="">
+        <style>
+           .logo{
+            margin-left: 30px
+          }
+        </style>
+      </div>
+      <div class="navlinks">
+        <ul class="menulist">
+          <li> <a href="/success">Home</a> </li>
+          <li> <a href="#about">about</a> </li>
+          <li> <a href="#rooms">rooms</a> </li>
+          <li> <a href="#news">news</a> </li>
+          <li> <a href="#contact">contact</a> </li>
+          <a href="/"><li> <button class="second-btn">SIGN OUT</button> </li></a>
+          <li> <button class="primary-btn">BOOK NOW</button> </li>
+        </ul>
+      </div>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+  <h2 style="color:white">Responsive Checkout Form</h2>
+   <div class="row">
+    <div class="col-75">
+        <div class="form">
+        <form action="/action_page.php">
+        
+            <div class="row">
+            <div class="col-50">
+                <h3>Billing Address</h3>
+                <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+                <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
+                <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                <input type="text" id="email" name="email" placeholder="john@example.com">
+                <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+                <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
+                <label for="city"><i class="fa fa-institution"></i> City</label>
+                <input type="text" id="city" name="city" placeholder="New York">
+
+                <div class="row">
+                <div class="col-50">
+                    <label for="state">State</label>
+                    <input type="text" id="state" name="state" placeholder="NY">
+                </div>
+                <div class="col-50">
+                    <label for="zip">Zip</label>
+                    <input type="text" id="zip" name="zip" placeholder="10001">
+                </div>
+                </div>
+            </div>
+
+            <div class="col-50">
+                <h3>Payment</h3>
+                <label for="fname">Accepted Cards</label>
+                <div class="icon-container">
+                <i class="fa fa-cc-visa" style="color:navy;"></i>
+                <i class="fa fa-cc-amex" style="color:blue;"></i>
+                <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                <i class="fa fa-cc-discover" style="color:orange;"></i>
+                </div>
+                <label for="cname">Name on Card</label>
+                <input type="text" id="cname" name="cardname" placeholder="John More Doe">
+                <label for="ccnum">Credit card number</label>
+                <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+                <label for="expmonth">Exp Month</label>
+                <input type="text" id="expmonth" name="expmonth" placeholder="September">
+                <div class="row">
+                <div class="col-50">
+                    <label for="expyear">Exp Year</label>
+                    <input type="text" id="expyear" name="expyear" placeholder="2018">
+                </div>
+                <div class="col-50">
+                    <label for="cvv">CVV</label>
+                    <input type="text" id="cvv" name="cvv" placeholder="352">
+                </div>
+                </div>
+            </div>
+            
+            </div>
+            <label>
+            <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
+            </label>
+            <input type="submit" value="Continue to checkout" class="btn">
+        </form>
+        </div>
+    </div>
+    <div class="col-25">
+        <div class="form">
+        <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>1</b></span></h4>
+        <p><a href="#">Room 1</a> <span class="price">$250</span></p>
+        <hr>
+        <p>Total <span class="price" style="color:black"><b>$250</b></span></p>
+        </div>
+    </div>
+    </div>
+    </div>
+    <center><span>Or<a href="/login"> <button type="button" class="signinbtn"> Sign In</button> </a></span></center>
+    <div id="branchs">
+        <ul >
+                <li> <a href="#home"><img src="static\images\booking.png"></a> </li>
+                <li> <a href="#about"><img src="static\images\agoda.jpg"></a> </li>
+                <li> <a href="#rooms"><img src="static\images\trave.jpg"></a> </li>
+        </ul>
+    </div>
+  <div class="legal">
+    Copyright (c) 2022 Copyright Holder All Rights Reserved.
+  </div>
+  <div class="acbsww_icon_webchat">
+    <style>
+      .rw-widget-container{width: 90%;height:90%}
+      .rw-new-message{color: red}
+      .rw-widget-container .rw-close-button{ background-color: rgb(0, 228, 61);}
+      .rw-conversation-container .rw-header{background-color: rgb(0, 228, 61);
+}
+      .rw-conversation-container .rw-messages-container .rw-message .rw-client{background-color: rgb(0, 228, 61);}
+      .rw-launcher{ background-image: url("C:\\Users\\DELL\\Desktop\\rasa_hotelchatbot\\images\\bot.gif")}
+    </style>
+    <script src="hi.js"></script>
+    <script>!(function () {
+        let e = document.createElement("script"),
+          t = document.head || document.getElementsByTagName("head")[0];
+        (e.src =
+          "https://cdn.jsdelivr.net/npm/rasa-webchat@1.x.x/lib/index.js"),
+          // Replace 1.x.x with the version that you want
+          (e.async = !0),
+          (e.onload = () => {
+
+            window.WebChat.default(
+              {
+                initPayload: "/greet",
+                selector: "#webchat",
+                interval: 1000,
+                customData: { language: "en" , "userID": "123"},
+                socketUrl: "http://localhost:5005",
+                socketPath: "/socket.io/",
+                title: "Booking Bot",
+                // subtitle: "Subtitle",
+                inputTextFieldHint: "Type a message...",
+                connectingText: "Waiting for server",
+                hideWhenNotConnected: true,
+                fullScreenMode: false,
+                showFullScreenButton: false,
+                
+                profileAvatar: "C:\\Users\\DELL\\Desktop\\rasa_hotelchatbot\\images\\bot.gif",
+                openLauncherImage: "myCustomOpenImage.png",
+                closeLaucherImage: "myCustomCloseImage.png",
+                displayUnreadCount: true,
+                params: {
+                    images:{
+                        dims:{
+                            witdh: 300,
+                            height: 200,
+                        }
+                    },
+                    storage: "local"
+                },
+                // add other props here
+
+              },
+              null
+            );
+          }),
+          t.insertBefore(e, t.firstChild);
+      })();
+       localStorage.clear();
+      </script>    
+      </div>
+      <div>{{recommend}}</div>
+</body>
+</html>
