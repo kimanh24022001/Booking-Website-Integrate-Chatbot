@@ -1,5 +1,4 @@
 flask
-sqlalchemy
 flask_sqlalchemy
 datetime
 mysql.connector
@@ -7,9 +6,6 @@ gunicorn==20.1.0
 mysqlclient==2.1.1
 Flask-MySQLdb==1.0.1
 psycopg2
-mathparse>=0.1,<0.2
-python-dateutil>=2.7,<2.8
 sqlalchemy<1.3,>=1.2
 pytz
-PyYAML
-chatterbot==1.0.0
+chatterbot
