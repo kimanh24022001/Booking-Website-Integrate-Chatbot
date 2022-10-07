@@ -17,9 +17,9 @@ conversation = [
     "You're welcome."
 ]
 
-#chatbot = ChatBot("Ron Obvious")
-#trainer = ChatterBotCorpusTrainer(chatbot)
-#trainer.train(conversation)
+chatbot = ChatBot("Ron Obvious")
+trainer = ChatterBotCorpusTrainer(chatbot)
+trainer.train(conversation)
 
 app = Flask(__name__)
 
