@@ -1,10 +1,6 @@
 flask
-sqlalchemy
-flask_sqlalchemy
-datetime
-mysql.connector
+tensorflow-cpu
+nltk
+keras
 gunicorn==20.1.0
-mysqlclient==2.1.1
-Flask-MySQLdb==1.0.1
-psycopg2
-chatterbot
+flask_ngrok
