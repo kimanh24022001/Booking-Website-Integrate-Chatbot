@@ -276,7 +276,7 @@ def chatbot():
         else:
             ints = predict_class(msg, model)
             res = getResponse(ints, intents)
-         return render_template("chatbot.html",userText=res,botText='Hi! Can I help you')
+         #return render_template("chatbot.html",userText=res,botText='Hi! Can I help you')
     return render_template("chatbot.html",botText='Hi! Can I help you')
 
 
