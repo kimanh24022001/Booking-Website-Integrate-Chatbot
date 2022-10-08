@@ -213,7 +213,7 @@ def booking():
         db.session.commit()
         flash("Room Book request has been send successfully")
         if session.get('username'):
-           return render_template ("pay.html")
+           return render_template ("booking.html")
         else:
           return render_template ("pay.html")
     return render_template ("booking.html")
@@ -260,7 +260,7 @@ def delete_checkout(id):
     return redirect("/record")
 
 app.route("/chatbot")
-def home():
+def chatbot():
     return render_template("chatbot.html")
 
 
