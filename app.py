@@ -259,28 +259,25 @@ def delete_checkout(id):
     db.session.commit()
     return redirect("/record")
 
-app.route("/chatbot")
+app.route("/chatbot",methods=["GET","POST"])
 def chatbot():
-    return render_template("chatbot.html")
-
-
-@app.route("/get", methods=["POST"])
-def chatbot_response():
-    msg = request.form["msg"]
-    if msg.startswith('my name is'):
-        name = msg[11:]
-        ints = predict_class(msg, model)
-        res1 = getResponse(ints, intents)
-        res =res1.replace("{n}",name)
-    elif msg.startswith('hi my name is'):
-        name = msg[14:]
-        ints = predict_class(msg, model)
-        res1 = getResponse(ints, intents)
-        res =res1.replace("{n}",name)
-    else:
-        ints = predict_class(msg, model)
-        res = getResponse(ints, intents)
-    return res
+    if request.method == "POST":
+        msg = request.form["msg"]
+        if msg.startswith('my name is'):
+            name = msg[11:]
+            ints = predict_class(msg, model)
+            res1 = getResponse(ints, intents)
+            res =res1.replace("{n}",name)
+        elif msg.startswith('hi my name is'):
+            name = msg[14:]
+            ints = predict_class(msg, model)
+            res1 = getResponse(ints, intents)
+            res =res1.replace("{n}",name)
+        else:
+            ints = predict_class(msg, model)
+            res = getResponse(ints, intents)
+         return render_template("chatbot.html",userText=res,botText='Hi! Can I help you')
+    return render_template("chatbot.html",botText='Hi! Can I help you')
 
 
 # chat functionalities
