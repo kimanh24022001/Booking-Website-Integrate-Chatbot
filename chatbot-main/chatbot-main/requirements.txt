@@ -1,4 +1,0 @@
-flask
-tensorflow-cpu
-nltk
-keras
